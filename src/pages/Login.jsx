@@ -3,12 +3,14 @@ import { useNavigate } from "react-router-dom"
 import Alerta from "../components/Alerta"
 import clienteAxios from "../config/clienteAxios"
 import { Link } from "react-router-dom"
+import useAuth from "../hooks/useAuth"
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [alerta, setAlerta] = useState({});
 
+    const {setAuth} = useAuth();
 
     const handleSumit = async (e)=>{
         e.preventDefault();
@@ -23,7 +25,8 @@ const Login = () => {
         try {
             const {data} = await clienteAxios.post("/usuarios/login", {email, password});
             localStorage.setItem("token", data.token);
-            setAlerta({})
+            setAlerta({});
+            setAuth(data);
         } catch (error) {
             setAlerta({
                 msg: error.response.data.msg,
