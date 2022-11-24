@@ -51,7 +51,7 @@ const OlvidePassword = () => {
                 </div>
                 <input 
                     type="submit" 
-                    value="Enviar Instrucciónes"
+                    value="Enviar Instrucciones"
                     className="bg-sky-700 w-full mb-3 py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-sky-800 transition-colors"
                 />
             </form>
