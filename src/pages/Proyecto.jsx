@@ -51,6 +51,7 @@ const Proyecto = () => {
             </button>
 
             <p className="font-bold text-xl mt-10">Tareas del Proyecto</p>
+
             <div className="flex justify-center">
                 <div className="w-full md:w-1/3 lg:w-1/4">
                     {msg && <Alerta alerta={alerta}/>}
@@ -58,6 +59,8 @@ const Proyecto = () => {
                 
             </div>
             
+            
+
             <div className="bg-white shadow mt-10 rounded-lg">
                 {proyecto.tareas?.length ? proyecto.tareas?.map(tarea => (
                     <Tarea 
@@ -67,6 +70,15 @@ const Proyecto = () => {
                 )):
                 <p className="text-center my-5 p-10">No Hay tareas en este proyecto</p>}
             </div>
+
+            <div className="flex items-center justify-between mt-10">
+                <p className="font-bold text-xl">Tareas del Proyecto</p>
+                <Link
+                    to={`/proyectos/nuevo-colaborador/${proyecto._id}`}
+                    className="text-gray-400 uppercase font-bold hover:text-black"
+                >Añadir</Link>
+            </div>
+            
 
             <ModalFormularioTarea/>
             <ModalEliminarTarea/>
